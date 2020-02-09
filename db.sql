@@ -562,8 +562,8 @@ INSERT INTO `sys_role` VALUES (7, '系统管理员', '系统管理员', 1, '2019
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_permission`;
 CREATE TABLE `sys_role_permission`  (
-  `rid` int(11) NOT NULL DEFAULT '',
-  `pid` int(11) NOT NULL DEFAULT '',
+  `rid` int(11) NOT NULL DEFAULT 0,
+  `pid` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY USING BTREE (`rid`, `pid`),
   INDEX `sys_role_permission_ibfk_1` USING BTREE(`pid`),
   CONSTRAINT `sys_role_permission_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `sys_permission` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
@@ -749,8 +749,8 @@ INSERT INTO `sys_user` VALUES (15, '上单', 'shangdan', '9628dd6423df694d091b0d
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role`  (
-  `uid` int(11) NOT NULL DEFAULT '',
-  `rid` int(11) NOT NULL DEFAULT '',
+  `uid` int(11) NOT NULL DEFAULT 0,
+  `rid` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY USING BTREE (`uid`, `rid`),
   INDEX `FK_sys_user_role_1` USING BTREE(`rid`),
   CONSTRAINT `FK_sys_user_role_1` FOREIGN KEY (`rid`) REFERENCES `sys_role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
