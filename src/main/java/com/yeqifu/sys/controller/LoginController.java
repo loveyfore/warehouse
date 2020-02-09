@@ -44,7 +44,7 @@ public class LoginController {
             Subject subject = SecurityUtils.getSubject();
             AuthenticationToken token = new UsernamePasswordToken(userVo.getLoginname(),userVo.getPwd());
             try {
-                //对用户进行认证登陆
+                //对用户进行认证登陆（管理员用户名：system，密码：123456)
                 subject.login(token);
                 //通过subject获取以认证活动的user
                 ActiverUser activerUser = (ActiverUser) subject.getPrincipal();
